@@ -1,0 +1,3 @@
+include ':imageLoader'
+include ':app'
+rootProject.name = "GlideImageLoader"
