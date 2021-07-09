@@ -20,6 +20,8 @@ class GlideConfiguration : AppGlideModule() {
     private var IMAGE_DISK_CACHE_MAX_SIZE = 100 * 1024 * 1024//图片缓存文件最大值为100Mb
 
     override fun applyOptions(context: Context, builder: GlideBuilder) {
+        applicationContext = context
+
         val cacheFileDir: File = context.externalCacheDir ?: context.cacheDir
         val cacheFile = File(cacheFileDir, "Glide")
         builder.setDiskCache {
@@ -59,6 +61,7 @@ class GlideConfiguration : AppGlideModule() {
     override fun isManifestParsingEnabled() = false
 
     companion object {
+        internal var applicationContext: Context? = null
 
         private var definedGlobalEntryPoint = false
 

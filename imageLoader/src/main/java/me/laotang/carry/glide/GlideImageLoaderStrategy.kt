@@ -125,4 +125,16 @@ class GlideImageLoaderStrategy :
             }
         }
     }
+
+    override fun pause() {
+        GlideConfiguration.applicationContext?.let {
+            GlideQuick.with(it).pauseRequests()
+        }
+    }
+
+    override fun resume() {
+        GlideConfiguration.applicationContext?.let {
+            GlideQuick.with(it).resumeRequests()
+        }
+    }
 }
